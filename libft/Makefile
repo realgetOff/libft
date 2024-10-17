@@ -6,11 +6,11 @@
 #    By: mforest- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/23 08:57:42 by mforest-          #+#    #+#              #
-#    Updated: 2024/10/17 04:50:40 by mforest-         ###   ########.fr        #
+#    Updated: 2024/10/17 05:01:13 by mforest-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-
-NAME = libft.a
+#
+# NAME = libft.a
 TEST = test_libft
 
 CC = gcc
@@ -38,29 +38,22 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
 bonus: $(OBJS) $(BONUS_OBJS)
 	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
 
 so: $(OBJS)
 	$(CC) $(OBJS) --shared -o libft.so
 
-run: main.c $(NAME)
-	$(CC) main.c $(NAME) $(CFLAGS) -o a.out
-	./a.out
-
-run2: main.c $(NAME)
-	$(CC) main.c $(NAME) $(CFLAGS) -o a.out
-	valgrind ./a.out
-
-run3: all
-	./libft_tester/libft_tester
-
 clean:
-	rm -f $(OBJS) $(BONUS_OBJS) $(MAIN_OBJ)
+	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME) $(TEST)
+	rm -f $(NAME) $(TEST) libft.so a.out
 
 re: fclean all
 
-.PHONY: all clean fclean re run run2 run3 so bonus
+.PHONY: all clean fclean re bonus so
+

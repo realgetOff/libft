@@ -6,7 +6,7 @@
 #    By: mforest- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/23 08:57:42 by mforest-          #+#    #+#              #
-#    Updated: 2024/10/17 03:15:51 by mforest-         ###   ########.fr        #
+#    Updated: 2024/10/17 04:50:40 by mforest-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,21 @@ NAME = libft.a
 TEST = test_libft
 
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I includes
 
-SRCS = ft_atoi.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c ft_isprint.c ft_strchr.c ft_strdup.c ft_strjoin.c ft_strlen.c ft_strncmp.c ft_strrchr.c ft_tolower.c ft_toupper.c ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_calloc.c ft_strnstr.c ft_memset.c ft_strlcat.c ft_bzero.c ft_putchar_fd.c ft_putnbr_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_split.c ft_itoa.c ft_substr.c ft_strmapi.c ft_strtrim.c ft_striteri.c
+SRCS_DIR = srcs
+SRCS = $(SRCS_DIR)/ft_atoi.c $(SRCS_DIR)/ft_isalnum.c $(SRCS_DIR)/ft_isalpha.c $(SRCS_DIR)/ft_isascii.c $(SRCS_DIR)/ft_isdigit.c \
+        $(SRCS_DIR)/ft_isprint.c $(SRCS_DIR)/ft_strchr.c $(SRCS_DIR)/ft_strdup.c $(SRCS_DIR)/ft_strjoin.c $(SRCS_DIR)/ft_strlen.c \
+        $(SRCS_DIR)/ft_strncmp.c $(SRCS_DIR)/ft_strrchr.c $(SRCS_DIR)/ft_tolower.c $(SRCS_DIR)/ft_toupper.c $(SRCS_DIR)/ft_memchr.c \
+        $(SRCS_DIR)/ft_memcmp.c $(SRCS_DIR)/ft_memcpy.c $(SRCS_DIR)/ft_memmove.c $(SRCS_DIR)/ft_strlcpy.c $(SRCS_DIR)/ft_calloc.c \
+        $(SRCS_DIR)/ft_strnstr.c $(SRCS_DIR)/ft_memset.c $(SRCS_DIR)/ft_strlcat.c $(SRCS_DIR)/ft_bzero.c $(SRCS_DIR)/ft_putchar_fd.c \
+        $(SRCS_DIR)/ft_putnbr_fd.c $(SRCS_DIR)/ft_putstr_fd.c $(SRCS_DIR)/ft_putendl_fd.c $(SRCS_DIR)/ft_split.c $(SRCS_DIR)/ft_itoa.c \
+        $(SRCS_DIR)/ft_substr.c $(SRCS_DIR)/ft_strmapi.c $(SRCS_DIR)/ft_strtrim.c $(SRCS_DIR)/ft_striteri.c
+
 OBJS = $(SRCS:.c=.o)
 
-BONUS_SRCS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstdel.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+BONUS_SRCS = $(SRCS_DIR)/ft_lstnew.c $(SRCS_DIR)/ft_lstadd_front.c $(SRCS_DIR)/ft_lstsize.c $(SRCS_DIR)/ft_lstlast.c $(SRCS_DIR)/ft_lstadd_back.c \
+             $(SRCS_DIR)/ft_lstdelone.c $(SRCS_DIR)/ft_lstdel.c $(SRCS_DIR)/ft_lstclear.c $(SRCS_DIR)/ft_lstiter.c $(SRCS_DIR)/ft_lstmap.c
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 AR = ar rcs
@@ -36,11 +45,11 @@ so: $(OBJS)
 	$(CC) $(OBJS) --shared -o libft.so
 
 run: main.c $(NAME)
-	$(CC) main.c $(NAME) -Wall -Wextra -o a.out
+	$(CC) main.c $(NAME) $(CFLAGS) -o a.out
 	./a.out
 
 run2: main.c $(NAME)
-	$(CC) main.c $(NAME) -Wall -Wextra -o a.out
+	$(CC) main.c $(NAME) $(CFLAGS) -o a.out
 	valgrind ./a.out
 
 run3: all

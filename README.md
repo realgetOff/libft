@@ -5,7 +5,7 @@
 <p align="center">
 	<img src="https://img.shields.io/badge/status-finished-yellow"/>
 	<img src="https://img.shields.io/badge/evaluated-15%20%2F%2010%20%2F%202024-yellow"/>
-	<img src="https://img.shields.io/badge/score-100%20%2F%20100-success?color=%2312bab9&style=flat-square"/>
+	<img src="https://img.shields.io/badge/score-100%2F100-yellow"/>
 	<img src="https://img.shields.io/badge/language-C_95.8%25-yellow"/>
 	<img src="https://img.shields.io/badge/last_commit-october-yellow"/>
 	<a href='https://profile.intra.42.fr/users/mforest-' target="_blank"><img alt='42' src='https://img.shields.io/badge/Porto-100000?style=flat-square&logo=42&logoColor=white&labelColor=000000&color=000000'/></a>

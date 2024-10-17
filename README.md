@@ -36,7 +36,7 @@ git clone git@github.com:realgetOff/libft.git
 
 #### 2º - Enter the project folder and run `make`
 ```bash
-cd libft
+cd libft/libft
 make
 ```
 

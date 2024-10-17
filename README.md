@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://github.com/realgetOff/main/blob/main/Black%20Yellow%20Bold%20Bag%20Fashion%20Sale%20Banner.png">
+  <img src="https://github.com/realgetOff/main/blob/main/Black%20Yellow%20Bold%20Bag%20Fashion%20Sale%20Banner%20(1).png">
 </p>
 
 <p align="center">

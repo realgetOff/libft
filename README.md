@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://www.dropbox.com/scl/fi/p2ynvilzfgoax1gizvbop/Black-Yellow-Bold-Bag-Fashion-Sale-Banner.png?rlkey=asdryetj6wx6k9v914k0lvsen&st=jrr9auyl&dl=0">
+  <img src="https://github.com/realgetOff/main/blob/main/Black%20Yellow%20Bold%20Bag%20Fashion%20Sale%20Banner.png">
 </p>
 
 <p align="center">

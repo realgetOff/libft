@@ -6,17 +6,16 @@
 #    By: mforest- <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/23 08:57:42 by mforest-          #+#    #+#              #
-#    Updated: 2024/10/17 05:01:13 by mforest-         ###   ########.fr        #
+#    Updated: 2024/10/17 05:17:42 by mforest-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
-#
-# NAME = libft.a
-TEST = test_libft
 
+NAME = libft.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I includes
 
 SRCS_DIR = srcs
+
 SRCS = $(SRCS_DIR)/ft_atoi.c $(SRCS_DIR)/ft_isalnum.c $(SRCS_DIR)/ft_isalpha.c $(SRCS_DIR)/ft_isascii.c $(SRCS_DIR)/ft_isdigit.c \
         $(SRCS_DIR)/ft_isprint.c $(SRCS_DIR)/ft_strchr.c $(SRCS_DIR)/ft_strdup.c $(SRCS_DIR)/ft_strjoin.c $(SRCS_DIR)/ft_strlen.c \
         $(SRCS_DIR)/ft_strncmp.c $(SRCS_DIR)/ft_strrchr.c $(SRCS_DIR)/ft_tolower.c $(SRCS_DIR)/ft_toupper.c $(SRCS_DIR)/ft_memchr.c \
@@ -29,31 +28,28 @@ OBJS = $(SRCS:.c=.o)
 
 BONUS_SRCS = $(SRCS_DIR)/ft_lstnew.c $(SRCS_DIR)/ft_lstadd_front.c $(SRCS_DIR)/ft_lstsize.c $(SRCS_DIR)/ft_lstlast.c $(SRCS_DIR)/ft_lstadd_back.c \
              $(SRCS_DIR)/ft_lstdelone.c $(SRCS_DIR)/ft_lstdel.c $(SRCS_DIR)/ft_lstclear.c $(SRCS_DIR)/ft_lstiter.c $(SRCS_DIR)/ft_lstmap.c
+
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
 
 AR = ar rcs
 
-all: $(NAME)
-
 $(NAME): $(OBJS)
 	$(AR) $(NAME) $(OBJS)
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+all: $(NAME) bonus
 
 bonus: $(OBJS) $(BONUS_OBJS)
-	$(AR) $(NAME) $(OBJS) $(BONUS_OBJS)
+	$(AR) $(NAME) $(BONUS_OBJS)
 
-so: $(OBJS)
-	$(CC) $(OBJS) --shared -o libft.so
+$(SRCS_DIR)/%.o: $(SRCS_DIR)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(NAME) $(TEST) libft.so a.out
+	rm -f $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus so
-
+.PHONY: all clean fclean re bonus
